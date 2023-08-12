@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* #root{
+    
+} */
+
+.header{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background: #000;
+    color: #fff;
+}
+
+.logo{
+    height: 35px;
+    width: 35px;
+    padding-left: 5px;
+}
+
+/* .navbar{
+    display: flex; 
+    justify-content: space-around;
+} */
+
+.navbar ul{
+    max-width: 400px;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navbar ul li{
+    padding: 15px;
+}
+
+.login-button{
+    padding: 5px;
+    color: #000;
+    /* background: ; */
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.search-container input{
+    min-width: 250px;
+    padding: 10px;
+    height: 30px;
+}
+
+.search-btn{
+    margin-left: 10px;
+    padding: 0 10px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.demo-card{
+    width: 300px;
+    height: 300px;
+    background-color: #7e7b7b;
+    border-radius: 9px;
+    animation: load 1s ease-in-out infinite running;
+}
+
+.restaurant-count, .no-restaurant-found-msg{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 7px;
+}
+
+
+.restaurant-list{
+    width:90%;
+    margin: 1rem auto;
+    margin-top:0;
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    gap: 2.5rem;
+    padding:2rem;
+    background-color:#fff
+}
+
+.card {
+    width:300px;
+    height: 300px;
+    padding: .5rem;
+    border-radius: 9px;
+    box-shadow: 0 1px 0 0 rgb(185, 183, 183);
+    cursor: pointer;
+}
+
+.card:hover{
+    /* transform: translate(-1px, -1px); */
+    box-shadow: 0px 2px 2px 0 gray;
+    /* scale: 1.05;
+    transition: 0.5s ease-in; */
+}
+
+.card > img {
+    width:100%;
+}
+
+/* .card > p{
+    display: flex;
+}
+
+.card p small{
+    justify-content: space-between;
+    background: #000;
+} */
+
+
+
+
+.footer{
+    text-align: center;
+}

@@ -1,5 +1,12 @@
 import { useState } from "react";
-import logo from "../images/swiggy-logo.png";
+import Logo from "../assets/images/swiggylogo.png";
+import { Link } from "react-router-dom";
+
+const Title = () => (
+  <a href="/">
+    <img src={Logo} alt="logo" className="logo" />
+  </a>
+);
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -10,19 +17,22 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className="logo">
-        {/* <img className="logo" src="../images/swiggy-logo.png" alt="logo" /> */}
-        <img className="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRmgy2mWnEu7zjSYDGsCIYRlLAzRl-VZwtfX6AHyBb&s" alt="logo"  />
-      </div>
+      <Title />
       <div className="navbar">
         <ul>
-          <li>Home</li>
-          <li>About</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact us</Link>
+          </li>
           <li>Cart</li>
           <li>
             <button className="login-button" onClick={handleLogin}>
               {isLoggedIn ? "Logout" : "Login"}
-              
             </button>
           </li>
         </ul>

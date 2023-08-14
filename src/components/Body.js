@@ -1,7 +1,8 @@
 // import { GET_RES_API_URL } from "../config";
 import { useState, useEffect } from "react";
-import RestaurantCard from "../components/RestaurantCard";
+import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function filterRestaurants(searchText, allRestaurants) {
   const data = allRestaurants.filter((restaurant) => {
@@ -73,19 +74,22 @@ const Body = () => {
         <Shimmer />
       ) : (
         <div>
-          <p className="restaurant-count">
+          {/* <p className="restaurant-count">
             {filteredRestaurants.length} restaurants
-          </p>
+          </p> */}
           <div className="restaurant-list">
             {filteredRestaurants.length == 0 ? (
               <p className="no-restauant-found-msg">No restaurant found...</p>
             ) : (
               filteredRestaurants.map((restaurant) => {
                 return (
+                  <Link to={"/restaurant/" + restaurant.info.id}
+                  key={restaurant?.info?.id}>
                   <RestaurantCard
                     {...restaurant?.info}
-                    key={restaurant?.info?.id}
+                    // key={restaurant?.info?.id}
                   />
+                  </Link>
                 );
               })
             )}

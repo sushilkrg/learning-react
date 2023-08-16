@@ -12,12 +12,17 @@ const RestaurantMenu = () => {
 
   console.log(restaurants);
 
-  return (!restaurants)?<Shimmer/> : (
+  return !restaurants ? (
+    <Shimmer />
+  ) : (
     <div className="restaurant-menu">
       <div>
         <h1>Restaurant id: {resId}</h1>
         <h2>{restaurants[0]?.card?.card?.info?.name}</h2>
-        <img src={IMG_CDN + restaurants[0]?.card?.card?.info?.cloudinaryImageId} alt="img" />
+        <img
+          src={IMG_CDN + restaurants[0]?.card?.card?.info?.cloudinaryImageId}
+          alt="img"
+        />
         {/* <h3>{restaurants[0]?.card?.card?.info?.area}</h3> */}
         <h3>{restaurants[0]?.card?.card?.info?.city}</h3>
         <p>{restaurants[0]?.card?.card?.info?.cuisines.join(", ")}</p>
@@ -28,10 +33,12 @@ const RestaurantMenu = () => {
         <h1>Recommended</h1>
         <ul>
           {/* Object.values  */}
-          {(restaurants[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories[0]?.itemCards).map((item) => (
-            <li key={item?.card?.info?.id}>{item?.card?.info?.name}</li>
-            // Recommended items Components call 
-          ))}
+          {(restaurants[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories[0]?.itemCards).map(
+            (item) => (
+              <li key={item?.card?.info?.id}>{item?.card?.info?.name}</li>
+              // Recommended items Components call
+            )
+          )}
         </ul>
       </div>
     </div>

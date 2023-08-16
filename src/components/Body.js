@@ -1,10 +1,11 @@
 // import { GET_RES_API_URL } from "../config";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterRestaurants } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 
 const Body = () => {
@@ -12,6 +13,7 @@ const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const {user, setUser} = useContext(UserContext);
 
   console.log(allRestaurants);
 
@@ -49,6 +51,9 @@ const Body = () => {
     return <h1>Offline, please check your internet connection</h1>
   }
 
+  if(!allRestaurants) return null;
+
+
   return (
     <div className="main-container">
       <div className="search-container">
@@ -67,6 +72,18 @@ const Body = () => {
         >
           Search
         </button>
+        <input value={user.name} onChange= {
+          e => setUser({
+            ...user,
+            name: e.target.value,
+          })
+        }></input>
+        <input value={user.email} onChange= {
+          e => setUser({
+            ...user,
+            email: e.target.value,
+          })
+        }></input>
       </div>
 
       {!isLoaded ? (

@@ -158,3 +158,33 @@ a {
 .footer{
     text-align: center;
 }
+
+.section-container{
+    margin: auto;
+    width: 80vw;
+    border: 2px solid black;
+    /* border-collapse: separate; */
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+.accordian-header-container{
+    background-color: #62a8c9;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordian-header-container button{
+    padding: 1px 10px;
+    background-color: rgb(206, 37, 37);
+    color: white;
+    cursor: pointer;
+    width: 60px;
+    /* justify-content: center; */
+    /* text-align: center; */
+}
+.description-container p{
+    padding: 5px;
+
+}

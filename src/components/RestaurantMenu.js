@@ -2,26 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN } from "../../config";
 import Shimmer from "./Shimmer";
+import useRestaurant from "../utils/useRestaurant";
 
 const RestaurantMenu = () => {
   const params = useParams();
   const { resId } = params;
 
-  const [restaurants, setRestaurants] = useState(null);
+  const restaurants = useRestaurant(resId);
 
-  useEffect(() => {
-    getRestaurantInfo();
-  }, []);
-
-  async function getRestaurantInfo() {
-
-    // https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.385044&lng=78.486671&restaurantId=" + resId
-    );
-    const resData = await response.json();
-    setRestaurants(resData?.data?.cards);
-  }
   console.log(restaurants);
 
   return (!restaurants)?<Shimmer/> : (

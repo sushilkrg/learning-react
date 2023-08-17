@@ -1,14 +1,22 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN } from "../../config";
 import Shimmer from "./Shimmer";
 import useRestaurant from "../utils/useRestaurant";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/CartSlice";
 
 const RestaurantMenu = () => {
   const params = useParams();
   const { resId } = params;
 
   const restaurants = useRestaurant(resId);
+  const dispatch = useDispatch();
+
+  const addFoodItem =(item)=> {
+    dispatch(addItem(item));
+    console.log(item?.card?.info?.id);
+  };
 
   console.log(restaurants);
 
@@ -35,9 +43,12 @@ const RestaurantMenu = () => {
           {/* Object.values  */}
           {(restaurants[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories[0]?.itemCards).map(
             (item) => (
+              <div className="menu-container">
               <li key={item?.card?.info?.id}>{item?.card?.info?.name}</li>
-              // Recommended items Components call
+              <button onClick={() => addFoodItem(item)}>Add to cart</button>
+              </div>
             )
+            // Recommended items Components call
           )}
         </ul>
       </div>

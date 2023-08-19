@@ -4,7 +4,7 @@ import { IMG_CDN } from "../../config";
 import Shimmer from "./Shimmer";
 import useRestaurant from "../utils/useRestaurant";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/CartSlice";
+import { addItem } from "../utils/cartSlice";
 
 const RestaurantMenu = () => {
   const params = useParams();
@@ -39,7 +39,7 @@ const RestaurantMenu = () => {
       </div>
       <div className="recommended">
         <h1>Recommended</h1>
-        <ul>
+        <ul data-testid="menu">
           {/* Object.values  */}
           {(restaurants[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories[0]?.itemCards).map(
             (item) => (
